@@ -53,3 +53,8 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+
+.emptycart{
+	background-color: #F6F5FA;
+	display: none;
+}
