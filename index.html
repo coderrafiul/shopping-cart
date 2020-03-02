@@ -87,6 +87,14 @@
         const QntyNumber= parseFloat(Qnty);
         const addedQnty= QntyNumber + 1;
         document.getElementById("phoneQnty").value= addedQnty;
+
+         const phonePrice= document.getElementById("phonePrice").innerText;
+         const phonePriceNumber= parseFloat(phonePrice);
+         const unitPrice= 1219;
+         const addedPhonePrice=  addedQnty*phonePriceNumber;
+         document.getElementById("phonePrice").innerText=addedPhonePrice;
+
+         
         
       })
 
@@ -97,9 +105,18 @@
          const QntyNumber= parseFloat(Qnty);
          const deductedQnty= QntyNumber - 1;
          document.getElementById("phoneQnty").value= deductedQnty;
+
+         const phonePrice= document.getElementById("phonePrice").innerText;
+         const phonePriceNumber= parseFloat(phonePrice);
+         const unitPrice= 1219;
+         const deductedPhonePrice= deductedQnty*unitPrice;
+         document.getElementById("phonePrice").innerText= deductedPhonePrice;
       })
 
-      //PhonePrice event handler
+  
+      
+      
+      
 
 
    </script>
