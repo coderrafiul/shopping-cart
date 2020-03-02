@@ -48,7 +48,7 @@
                            <button id="coverPlus" class="btn btn-default"><i  class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="coverPrice">59</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -90,7 +90,7 @@
 
          const phonePrice= document.getElementById("phonePrice").innerText;
          const phonePriceNumber= parseFloat(phonePrice);
-         const unitPrice= 1219;
+         
          const addedPhonePrice=  addedQnty*phonePriceNumber;
          document.getElementById("phonePrice").innerText=addedPhonePrice;
 
@@ -108,11 +108,41 @@
 
          const phonePrice= document.getElementById("phonePrice").innerText;
          const phonePriceNumber= parseFloat(phonePrice);
-         const unitPrice= 1219;
-         const deductedPhonePrice= deductedQnty*unitPrice;
+         
+         const deductedPhonePrice= deductedQnty*phonePriceNumber;
          document.getElementById("phonePrice").innerText= deductedPhonePrice;
       })
 
+     //coverPlus button event handler
+
+      const addCover= document.getElementById("coverPlus");
+      addCover.addEventListener("click", function(){
+        const Qnty= document.getElementById("coverQnty").value;
+        const QntyNumber= parseFloat(Qnty);
+        const addedQnty= QntyNumber + 1;
+        document.getElementById("coverQnty").value= addedQnty;
+
+         const coverPrice= document.getElementById("coverPrice").innerText;
+         const coverPriceNumber= parseFloat(coverPrice);
+         
+         const addedCoverPrice=  addedQnty*coverPriceNumber;
+         document.getElementById("coverPrice").innerText=addedCoverPrice;
+      })
+
+      //coverMinus button event handler
+      const dedeuctCover= document.getElementById("coverMinus");
+      dedeuctCover.addEventListener("click", function(){
+         const Qnty= document.getElementById("coverQnty").value;
+         const QntyNumber= parseFloat(Qnty);
+         const deductedQnty= QntyNumber - 1;
+         document.getElementById("coverQnty").value= deductedQnty;
+
+         const coverPrice= document.getElementById("coverPrice").innerText;
+         const coverPriceNumber= parseFloat(coverPrice);
+         
+         const deductedCoverPrice= deductedQnty*coverPriceNumber;
+         document.getElementById("coverPrice").innerText= deductedCoverPrice;
+      })
   
       
       
