@@ -89,25 +89,50 @@
         const addedQnty= QntyNumber + 1;
         document.getElementById("phoneQnty").value= addedQnty;
 
-         const phonePrice= document.getElementById("phonePrice").innerText;
-         const phonePriceNumber= parseFloat(phonePrice);
-         unitPrice= 1219;
-         const addedPhonePrice=  addedQnty*unitPrice;
-         document.getElementById("phonePrice").innerText=addedPhonePrice;
+        const unitPrice=1219;
+
+        
+
+         phonePriceTotal("phonePrice", unitPrice, addedQnty);
+
+         const addedPhonePrice= phonePriceTotal("phonePrice", unitPrice, addedQnty);
+
+         subtotal("subtotal", addedPhonePrice)
+
 
 
 
          
 
-         const checkout= document.getElementById("subtotal").innerText;
-         const checkoutNumber= parseFloat(checkout);
-         const subtotal= addedPhonePrice;
-         document.getElementById("subtotal").innerText= subtotal;
+         // const checkout= document.getElementById("subtotal").innerText;
+         // const checkoutNumber= parseFloat(checkout);
+         // const subtotal= addedPhonePrice;
+         // document.getElementById("subtotal").innerText= subtotal;
 
          
         
       })
 
+      function phonePriceTotal(id, unitPrice, addedQnty){
+         const phonePrice= document.getElementById(id).innerText;
+         const phonePriceNumber= parseFloat(phonePrice);
+         const addedPhonePrice=  addedQnty*unitPrice;
+         document.getElementById(id).innerText=addedPhonePrice;
+         return addedPhonePrice;
+     
+
+      }
+
+      function subtotal(id, addedPhonePrice){
+         const checkout= document.getElementById(id).innerText;
+         const checkoutNumber= parseFloat(checkout);
+         const subtotal= addedPhonePrice;
+         document.getElementById(id).innerText= subtotal;
+      }
+      
+      
+
+     
       //phoneMinus button event handler
       const dedeuctPhone= document.getElementById("phoneMinus");
       dedeuctPhone.addEventListener("click", function(){
@@ -137,16 +162,21 @@
         const addedQnty= QntyNumber + 1;
         document.getElementById("coverQnty").value= addedQnty;
 
-         const coverPrice= document.getElementById("coverPrice").innerText;
-         const coverPriceNumber= parseFloat(coverPrice);
-         const unitPrice= 59;
-         const addedCoverPrice=  addedQnty*unitPrice;
-         document.getElementById("coverPrice").innerText=addedCoverPrice;
+        const unitPrice= 59;
 
-         const checkout= document.getElementById("subtotal").innerText;
-         const checkoutNumber= parseFloat(checkout);
-         const subtotal= addedCoverPrice;
-         document.getElementById("subtotal").innerText= subtotal;
+
+         phonePriceTotal("coverPrice", unitPrice, addedQnty);
+
+         const addedCoverPrice= phonePriceTotal("coverPrice", unitPrice, addedQnty);
+
+         subtotal("subtotal", addedCoverPrice)
+
+
+
+         // const checkout= document.getElementById("subtotal").innerText;
+         // const checkoutNumber= parseFloat(checkout);
+         // const subtotal= addedCoverPrice;
+         // document.getElementById("subtotal").innerText= subtotal;
       })
 
       //coverMinus button event handler
